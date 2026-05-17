@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f5f5;
+      font-family: 'DM Sans', sans-serif;
+      font-optical-sizing: auto;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .nav-number {
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 1;
+      padding-top: 9px;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      height: 38px;
+      border: 1px solid #7e7e7e;
+      border-radius: 24px;
+      font-size: 20px;
+      font-weight: 400;
+      font-family: 'DM Sans', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000;
+      white-space: nowrap;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-pill.active {
+      background: #eec445;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      height: 100vh;
+      min-height: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero-heading {
+      position: absolute;
+      left: 40px;
+      top: 42.6%; /* 436 / 1024 */
+      font-size: clamp(72px, 11.11vw, 160px);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 73.7%;
+    }
+
+    .hero-heading em {
+      font-style: italic;
+    }
+
+    /* ── CONTACT ── */
+    .contact-heading {
+      position: absolute;
+      left: 40px;
+      top: 40.6%; /* 416 / 1024 */
+      font-size: clamp(64px, 11.8vw, 170px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 90.5%;
+    }
+
+    .contact-footer {
+      position: absolute;
+      bottom: 48px;
+      left: 40px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      height: 38px;
+      border: 1px solid #7e7e7e;
+      border-radius: 24px;
+      font-size: 20px;
+      font-weight: 400;
+      font-family: 'DM Sans', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .social-pill:hover {
+      background: #eee;
+    }
+
+    .contact-time {
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-item">
+        <span class="nav-number">01 /</span>
+        <a class="nav-pill active" href="#hero">HI</a>
+      </div>
+      <div class="nav-item">
+        <span class="nav-number">02 /</span>
+        <a class="nav-pill" href="#about">ABOUT</a>
+      </div>
+      <div class="nav-item">
+        <span class="nav-number">03 /</span>
+        <a class="nav-pill" href="#work">WORK</a>
+      </div>
+      <div class="nav-item">
+        <span class="nav-number">04 /</span>
+        <a class="nav-pill" href="#contact">CONTACT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 01 · HERO -->
+  <section id="hero">
+    <h1 class="hero-heading">
+      Design<br>with <em>Intent</em>
+    </h1>
+  </section>
+
+  <!-- 02 · ABOUT -->
+  <section id="about"></section>
+
+  <!-- 03 · WORK -->
+  <section id="work"></section>
+
+  <!-- 04 · CONTACT -->
+  <section id="contact">
+    <h2 class="contact-heading">Feel free to reach out&nbsp;;)</h2>
+    <div class="contact-footer">
+      <div class="social-links">
+        <a class="social-pill" href="#">Instagram</a>
+        <a class="social-pill" href="#">LinkedIn</a>
+      </div>
+      <span class="contact-time" id="clock"></span>
+    </div>
+  </section>
+
+  <script>
+    // Live NZT clock
+    function updateClock() {
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat('en-NZ', {
+        timeZone: 'Pacific/Auckland',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      }).formatToParts(now);
+      const h = parts.find(p => p.type === 'hour').value;
+      const m = parts.find(p => p.type === 'minute').value;
+      const s = parts.find(p => p.type === 'second').value;
+      document.getElementById('clock').textContent = `${h}:${m}:${s} NZst`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Active nav pill on scroll
+    const sections = document.querySelectorAll('section');
+    const pills = document.querySelectorAll('.nav-pill');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const idx = Array.from(sections).indexOf(entry.target);
+          if (pills[idx]) pills[idx].classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

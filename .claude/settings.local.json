@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__c2c2a49b-d374-4bc1-893d-5e98dc451347__get_design_context",
+      "mcp__c2c2a49b-d374-4bc1-893d-5e98dc451347__use_figma"
+    ]
+  }
+}
