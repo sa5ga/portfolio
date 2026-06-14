@@ -1,0 +1,105 @@
+/* Case study — landing section */
+
+.case-study__landing {
+  padding: var(--header-h) var(--pad-x) clamp(6rem, 12vh, 10rem);
+}
+
+.case-study__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.case-study__hero {
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+}
+
+.case-study__hero img,
+.case-study__hero-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: clamp(1.5rem, 2.5vw, 2.667rem);
+  object-fit: cover;
+}
+
+.case-study__hero-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study__hero-placeholder--echo {
+  background: linear-gradient(135deg, #1a0a0a 0%, #3d1515 50%, #0d0d0d 100%);
+  color: #ffffff66;
+}
+
+.case-study__hero-placeholder--kotuitui {
+  background: linear-gradient(180deg, #b8e635 0%, #1a8a7a 100%);
+  color: #03071e66;
+}
+
+.case-study__hero-placeholder--cleverly {
+  background: linear-gradient(135deg, #e8e4df 0%, #c9c4bc 100%);
+  color: #03071e55;
+}
+
+.case-study__title {
+  font-size: var(--fs-subheading);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+}
+
+.case-study__meta {
+  display: grid;
+  grid-template-columns: 7fr 7fr 3fr 2fr;
+  gap: clamp(2rem, 4vw, 4.167rem);
+}
+
+.case-study__meta-col h2 {
+  font-size: var(--fs-body2);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.case-study__meta-col p,
+.case-study__meta-col li {
+  font-size: var(--fs-text);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.case-study__meta-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (max-width: 992px) {
+  .case-study__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-study__meta-col:nth-child(3),
+  .case-study__meta-col:nth-child(4) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-study__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study__hero img,
+  .case-study__hero-placeholder {
+    aspect-ratio: 4 / 3;
+  }
+}
