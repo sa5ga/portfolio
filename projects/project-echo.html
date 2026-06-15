@@ -7,12 +7,15 @@
   <title>Project Echo — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/case-study.css">
-  <link rel="stylesheet" href="../css/blob-cursor.css">
+  <link rel="stylesheet" href="../css/grain.css">
+  <link rel="stylesheet" href="../css/text-reveal.css">
 </head>
 <body>
+
+  <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header">
     <nav class="site-nav" aria-label="Main navigation">
@@ -36,15 +39,18 @@
   </header>
 
   <main>
-    <article class="case-study">
-      <section class="case-study__landing">
-        <div class="case-study__inner">
+    <article class="case-study case-study--echo">
 
+      <section class="case-study__landing" data-nav-theme="light">
+        <div class="case-study__inner">
           <div class="case-study__hero">
-            <!-- Replace with: <img src="../images/project-echo-hero.png" alt="Project Echo — interactive LED exhibition display" width="1440" height="630" loading="eager"> -->
-            <div class="case-study__hero-placeholder case-study__hero-placeholder--echo" aria-hidden="true">
-              Hero image placeholder
-            </div>
+            <img
+              src="../images/project-echo-case-study/hero.png"
+              alt="Project Echo — interactive LED wall installation with pixel silhouette"
+              width="1440"
+              height="810"
+              loading="eager"
+            >
           </div>
 
           <h1 class="case-study__title">Project Echo</h1>
@@ -70,35 +76,148 @@
               <p>2026</p>
             </div>
           </div>
-
         </div>
       </section>
+
+      <div class="case-study__dark" data-nav-theme="dark">
+
+        <section class="case-study__section case-study__section--flush case-study__section--film">
+          <div class="case-study__inner">
+            <figure class="case-study__figure case-study__figure--video">
+              <video
+                class="case-study__video"
+                src="../video/project-echo-film.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Project Echo brand film"
+              ></video>
+            </figure>
+            <p class="case-study__attribution">by Bella Hepburn*</p>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Research Phase</h2>
+              <p class="case-study__lead">Firstly we began unpacking the brief. Under the theme 'Design for Play,' our task was to cultivate an intrinsic sense of playfulness within a physical environment</p>
+            </div>
+
+            <figure class="case-study__figure">
+              <img src="../images/project-echo-case-study/research-board.png" alt="Research board — Design for Play brief, sticky notes, and reference imagery" loading="lazy">
+            </figure>
+
+            <div class="case-study__subsection">
+              <p class="case-study__lead">My research focused directly on corporate office environments, analyzing how modern workplaces integrate playful design interventions into daily corporate routines to alleviate stress and foster collaboration.</p>
+
+              <div class="case-study__split case-study__split--research">
+                <figure class="case-study__split-figure">
+                  <img src="../images/project-echo-case-study/research-left.png" alt="Office environment research — goals and reference images" loading="lazy">
+                </figure>
+                <figure class="case-study__split-figure">
+                  <img src="../images/project-echo-case-study/research-right.png" alt="Workplace research — key features and tools" loading="lazy">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Set-up space</h2>
+              <p class="case-study__lead">We chose one of passive rooms of the building for our installation context. My task was to map out physical dimensions to then recreate the room in Blender as a 3D foundation for our concepts.</p>
+            </div>
+            <figure class="case-study__figure">
+              <img src="../images/project-echo-case-study/installation-space.png" alt="Installation space — empty room mapped for 3D recreation" loading="lazy">
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Work Process</h2>
+              <p class="case-study__lead">Developing the manipulative framework required a deep dive into Blender's Geometry Nodes. By using Gemini to quickly research and map out specific node functions, I significantly sped up my technical execution and prototyping phase.</p>
+            </div>
+
+            <div class="case-study__split case-study__split--equal">
+              <figure class="case-study__split-figure">
+                <img src="../images/project-echo-case-study/node-setup.png" alt="Blender Geometry Nodes setup — top-down room with pixel grid" loading="lazy">
+              </figure>
+              <figure class="case-study__split-figure">
+                <img src="../images/project-echo-case-study/node-preview.png" alt="Blender viewport — wall screen preview with silhouette" loading="lazy">
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Final Result</h2>
+            </div>
+            <figure class="case-study__figure case-study__figure--video">
+              <video
+                class="case-study__video"
+                src="../video/blender-animation-showcase.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Blender animation — colour manipulation showcase"
+              ></video>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section case-study__section--credit">
+          <div class="case-study__inner">
+            <h2 class="case-study__heading case-study__heading--credit">Credit</h2>
+            <p class="case-study__credit-text">A huge thank you to my team for great collaboration. Working alongside them gave me the perfect opportunity to push my boundaries into 3D software and interactive execution.</p>
+
+            <div class="case-study__credit-meta">
+              <div class="case-study__credit-col">
+                <h3>Technology</h3>
+                <div class="case-study__tech-icons">
+                  <img src="../images/icons/blender.png" alt="Blender" width="39" height="32">
+                </div>
+              </div>
+              <div class="case-study__credit-col">
+                <h3>Timeline</h3>
+                <p>8 weeks</p>
+              </div>
+              <div class="case-study__credit-col">
+                <h3>Project Role</h3>
+                <p>Team Lead<br>UX/UI</p>
+              </div>
+            </div>
+
+            <a href="cleverly.html" class="case-study__next">
+              <span>Cleverly next</span>
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <path d="M8 23H38M38 23L25 10M38 23L25 36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
     </article>
   </main>
 
-  <footer class="site-footer" id="contact">
-    <a href="mailto:sasha.zdarou@gmail.com" class="marquee" aria-label="Let's chat — send an email">
-      <div class="marquee__track">
-        <span>LET'S CHAT</span>
-        <span>LET'S CHAT</span>
-        <span>LET'S CHAT</span>
-        <span>LET'S CHAT</span>
-      </div>
-    </a>
-    <div class="footer__bottom">
-      <div class="footer__social">
-        <span class="footer__follow">(follow)</span>
-        <nav aria-label="Social links">
-          <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
-      </div>
-      <a href="mailto:sasha.zdarou@gmail.com" class="footer__email">sasha.zdarou@gmail.com</a>
-    </div>
-  </footer>
-
+  <script src="../js/grain.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="../js/blob-cursor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="../js/smooth-scroll.js"></script>
+  <script src="../js/nav-theme.js"></script>
+  <script src="../js/text-reveal.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

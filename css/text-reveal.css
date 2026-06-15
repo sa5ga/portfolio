@@ -1,0 +1,16 @@
+/* Body text — scroll reveal */
+
+@media (prefers-reduced-motion: no-preference) {
+  .text-reveal {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+    transition:
+      opacity 0.85s cubic-bezier(0.33, 1, 0.68, 1),
+      transform 0.85s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  .text-reveal.is-inview {
+    opacity: 1;
+    transform: none;
+  }
+}
