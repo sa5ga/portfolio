@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (sessionStorage.getItem("folio-page-transition")) {
+      document.documentElement.classList.add("is-page-transitioning");
+    }
+  </script>
   <meta name="description" content="Project Echo — interactive wall art installation case study">
-  <title>Project Echo — Portfolio</title>
+  <title>Project Echo - Sasha Kruhlou</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,200&display=swap" rel="stylesheet">
@@ -12,9 +18,11 @@
   <link rel="stylesheet" href="../css/case-study.css">
   <link rel="stylesheet" href="../css/grain.css">
   <link rel="stylesheet" href="../css/text-reveal.css">
+  <link rel="stylesheet" href="../css/page-transition.css">
 </head>
 <body>
 
+  <div class="page-transition" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -83,13 +91,11 @@
 
         <section class="case-study__section case-study__section--flush case-study__section--film">
           <div class="case-study__inner">
-            <figure class="case-study__figure case-study__figure--video">
+            <figure class="case-study__figure case-study__figure--video case-study__figure--film">
               <video
                 class="case-study__video"
                 src="../video/project-echo-film.mp4"
-                autoplay
                 muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Project Echo brand film"
@@ -164,9 +170,7 @@
               <video
                 class="case-study__video"
                 src="../video/blender-animation-showcase.mp4"
-                autoplay
                 muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Blender animation — colour manipulation showcase"
@@ -213,11 +217,13 @@
 
   <script src="../js/grain.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="../js/page-transition.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="../js/smooth-scroll.js"></script>
   <script src="../js/nav-theme.js"></script>
   <script src="../js/text-reveal.js"></script>
+  <script src="../js/video-sound.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

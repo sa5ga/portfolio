@@ -1,8 +1,9 @@
 (function initWorkScroll() {
   const section = document.querySelector(".work");
+  const track = document.querySelector(".work__track");
   const projects = [...document.querySelectorAll(".work .project")];
   const titlePanels = [...document.querySelectorAll(".work__title-panel")];
-  const titleAnchor = document.querySelector(".work__meta-sticky");
+  const titleBlock = document.querySelector(".work__titles");
 
   if (!section || !projects.length || typeof gsap === "undefined") return;
 
@@ -13,10 +14,43 @@
   const lastIndex = projects.length - 1;
   let activeIndex = -1;
 
+  function getHeaderHeight() {
+    const header = document.querySelector(".site-header");
+    return header ? header.offsetHeight : 70;
+  }
+
   function getTitleCenter() {
-    if (!titleAnchor) return window.innerHeight * 0.5;
-    const rect = titleAnchor.getBoundingClientRect();
-    return rect.top + rect.height / 2;
+    if (titleBlock) {
+      const rect = titleBlock.getBoundingClientRect();
+      return rect.top + rect.height / 2;
+    }
+
+    const headerH = getHeaderHeight();
+    return headerH + (window.innerHeight - headerH) / 2;
+  }
+
+  function syncTrackPadding() {
+    if (!track || !projects[0]) return;
+
+    if (window.matchMedia("(max-width: 992px)").matches) {
+      track.style.paddingTop = "0px";
+      return;
+    }
+
+    track.style.paddingTop = "0px";
+
+    const headerH = getHeaderHeight();
+    const targetViewportY = headerH + (window.innerHeight - headerH) / 2;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const trackTop = track.getBoundingClientRect().top + window.scrollY;
+    const layoutOffset = trackTop - sectionTop;
+    const project = projects[0];
+    const projectTop = project.getBoundingClientRect().top + window.scrollY;
+    const mediaCenterInTrack =
+      projectTop - trackTop + project.offsetHeight / 2;
+    const padding = targetViewportY - headerH - layoutOffset - mediaCenterInTrack;
+
+    track.style.paddingTop = `${Math.max(0, padding)}px`;
   }
 
   function getActiveIndex() {
@@ -66,10 +100,26 @@
     setActiveTitle(getActiveIndex());
   }
 
-  if (prefersReduced || typeof ScrollTrigger === "undefined") {
+  function refreshWorkScroll() {
+    syncTrackPadding();
     updateActiveTitle();
+    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+  }
+
+  syncTrackPadding();
+  updateActiveTitle();
+
+  window.addEventListener("resize", refreshWorkScroll);
+  window.addEventListener("load", refreshWorkScroll, { once: true });
+
+  if (projects[0]?.querySelector("img")) {
+    projects[0].querySelector("img").addEventListener("load", refreshWorkScroll, {
+      once: true,
+    });
+  }
+
+  if (prefersReduced || typeof ScrollTrigger === "undefined") {
     window.addEventListener("scroll", updateActiveTitle, { passive: true });
-    window.addEventListener("resize", updateActiveTitle);
     return;
   }
 
@@ -102,6 +152,5 @@
     onUpdate: updateActiveTitle,
   });
 
-  updateActiveTitle();
   ScrollTrigger.addEventListener("refresh", updateActiveTitle);
 })();

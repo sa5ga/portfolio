@@ -8,9 +8,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script>
+    if (sessionStorage.getItem("folio-page-transition")) {
+      document.documentElement.classList.add("is-page-transitioning");
+    }
+  </script>
+
   <meta name="description" content="Cleverly — AI communication skills app case study">
 
-  <title>Cleverly — Portfolio</title>
+  <title>Cleverly - Sasha Kruhlou</title>
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -24,12 +32,13 @@
 
   <link rel="stylesheet" href="../css/grain.css">
   <link rel="stylesheet" href="../css/text-reveal.css">
+  <link rel="stylesheet" href="../css/page-transition.css">
 
 </head>
 
 <body>
 
-
+  <div class="page-transition" aria-hidden="true"></div>
 
   <div class="grain" aria-hidden="true"></div>
 
@@ -437,6 +446,8 @@
   <script src="../js/grain.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script src="../js/page-transition.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 

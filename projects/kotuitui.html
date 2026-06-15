@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (sessionStorage.getItem("folio-page-transition")) {
+      document.documentElement.classList.add("is-page-transitioning");
+    }
+  </script>
   <meta name="description" content="Kōtuitui — public transport safety campaign case study">
-  <title>Kōtuitui — Portfolio</title>
+  <title>Kōtuitui - Sasha Kruhlou</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/case-study.css">
   <link rel="stylesheet" href="../css/grain.css">
   <link rel="stylesheet" href="../css/text-reveal.css">
+  <link rel="stylesheet" href="../css/page-transition.css">
 </head>
 <body>
 
+  <div class="page-transition" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -39,15 +47,18 @@
   </header>
 
   <main>
-    <article class="case-study">
+    <article class="case-study case-study--kotuitui">
+
       <section class="case-study__landing" data-nav-theme="light">
         <div class="case-study__inner">
-
           <div class="case-study__hero">
-            <!-- Replace with: <img src="../images/kotuitui-hero.png" alt="Kōtuitui — weaving trust into every ride" width="1440" height="630" loading="eager"> -->
-            <div class="case-study__hero-placeholder case-study__hero-placeholder--kotuitui" aria-hidden="true">
-              Hero image placeholder
-            </div>
+            <img
+              src="../images/kotuitui-case-study/hero.png"
+              alt="Kōtuitui — Weaving Trust Into Every Ride"
+              width="1440"
+              height="630"
+              loading="eager"
+            >
           </div>
 
           <h1 class="case-study__title">Kōtuitui</h1>
@@ -75,28 +86,141 @@
               <p>2025</p>
             </div>
           </div>
-
         </div>
       </section>
 
-      <nav class="case-study__next-bar" aria-label="Next case study">
-        <a href="project-echo.html" class="case-study__next">
-          <span>Project Echo next</span>
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
-            <path d="M8 23H38M38 23L25 10M38 23L25 36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </nav>
+      <div class="case-study__dark" data-nav-theme="dark">
+
+        <section class="case-study__section case-study__section--flush case-study__section--film">
+          <div class="case-study__inner">
+            <figure class="case-study__figure case-study__figure--video case-study__figure--film">
+              <video
+                class="case-study__video"
+                src="../video/kotuitui-film.mp4"
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Kōtuitui brand film"
+              ></video>
+            </figure>
+            <p class="case-study__attribution">by Theo Lawry*</p>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Research Phase</h2>
+              <p class="case-study__lead">To kick things off, the first approach was to interview people around and gather their thoughts on Auckland Transport. Here's what I found:</p>
+            </div>
+
+            <figure class="case-study__figure">
+              <img src="../images/kotuitui-case-study/research.png" alt="Research board — Auckland Transport interviews and insights" loading="lazy">
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Web Prototyping</h2>
+              <p class="case-study__lead case-study__lead--wide">In order for the people to know about the whole strategy, I started my lo-fi by compiling all the bits of information, that can potentially be shown a part of our campaign</p>
+            </div>
+            <figure class="case-study__figure case-study__figure--prototyping">
+              <img src="../images/kotuitui-case-study/web-prototyping.png" alt="Lo-fi wireframes — campaign web prototype screens" loading="lazy">
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__section-head">
+              <h2 class="case-study__heading">Refinement</h2>
+              <p class="case-study__lead case-study__lead--wide">After user feedback and small changes to the campaign, it was clear that some things had to be sacrificed for better engagement and user retemtion. That left me with one-pager campaign web</p>
+            </div>
+            <figure class="case-study__figure case-study__figure--refinement">
+              <img src="../images/kotuitui-case-study/refinement.png" alt="Hi-fi prototype — refined one-page campaign web design" loading="lazy">
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section">
+          <div class="case-study__inner">
+            <div class="case-study__outcome-head">
+              <h2 class="case-study__heading case-study__heading--outcome">Final Outcome</h2>
+              <a href="https://kotuitui.netlify.app/" class="case-study__visit-web" target="_blank" rel="noopener noreferrer">Visit Web</a>
+            </div>
+            <figure class="case-study__figure">
+              <img src="../images/kotuitui-case-study/final-outcome.png" alt="Final outcome — Kōtuitui campaign website on laptop with bus shelter mockup" loading="lazy">
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-study__section case-study__section--credit">
+          <div class="case-study__inner">
+            <h2 class="case-study__heading case-study__heading--credit">Credit</h2>
+            <p class="case-study__credit-text">Shout out to the team for their dedication to this project. Working alongside Auckland Transport was a fantastic experience, and I'm proud to see our collective vision come to life.</p>
+
+            <div class="case-study__credit-meta case-study__credit-meta--kotuitui">
+              <div class="case-study__credit-col">
+                <div class="case-study__credit-block">
+                  <h3>Clients</h3>
+                  <p>Auckland Transport</p>
+                </div>
+                <div class="case-study__credit-block">
+                  <h3>Fonts</h3>
+                  <p>Gotham Narrow</p>
+                </div>
+              </div>
+              <div class="case-study__credit-col">
+                <div class="case-study__credit-block">
+                  <h3>Technology</h3>
+                  <div class="case-study__tech-icons">
+                    <img src="../images/icons/figma.png" alt="Figma" width="19" height="24">
+                    <img src="../images/icons/vscode.webp" alt="VS Code" width="33" height="32">
+                    <img src="../images/icons/gemini.png" alt="Google Gemini" width="34" height="34">
+                  </div>
+                </div>
+                <div class="case-study__credit-block">
+                  <h3>Languages</h3>
+                  <p>HTML<br>CSS<br>JavaScript</p>
+                </div>
+              </div>
+              <div class="case-study__credit-col">
+                <div class="case-study__credit-block">
+                  <h3>Timeline</h3>
+                  <p>8 Weeks</p>
+                </div>
+                <div class="case-study__credit-block">
+                  <h3>Project Role</h3>
+                  <p>UX/UI Designer<br>Producer</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="project-echo.html" class="case-study__next">
+              <span>Project Echo next</span>
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+                <path d="M8 23H38M38 23L25 10M38 23L25 36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
     </article>
   </main>
 
   <script src="../js/grain.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="../js/page-transition.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="../js/smooth-scroll.js"></script>
   <script src="../js/nav-theme.js"></script>
   <script src="../js/text-reveal.js"></script>
+  <script src="../js/video-sound.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

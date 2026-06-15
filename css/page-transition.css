@@ -1,0 +1,21 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--color-bg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-transition.is-active {
+  pointer-events: auto;
+}
+
+html.is-page-transitioning .page-transition {
+  opacity: 1;
+}
+
+html.is-page-transitioning,
+html.is-page-transitioning body {
+  overflow: hidden;
+}
